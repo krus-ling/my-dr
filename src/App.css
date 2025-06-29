@@ -1,38 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");
+
 .App {
   text-align: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
+  background-color: #1A1A1A;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.main-container p {
+  font-size: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-container span {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+}
+
+.main-button {
+  margin-top: 20px;
+}
+
+.main-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+          transform 0.1s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-button:hover {
+  background-color: #202020; /* светлее при наведении */
+}
+
+.main-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+ul {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+ul li a .fa {
+  font-size: 40px;
+  color: #262626;
+  line-height: 80px;
+  transition: 0.5s;
+  padding-right: 14px;
+}
+
+ul li a span {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  color: #262626;
+  letter-spacing: 4px;
+  transition: 0.5s;
+}
+
+ul li a {
+  text-decoration: none;
+  display: block;
+  width: 210px;
+  height: 80px;
+  background: #fff;
+  text-align: left;
+  padding-left: 20px;
+  transform: rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: 0.5s;
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+ul li a:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background: #b1b1b1;
+  transform: rotate(0deg) skewY(-45deg);
+}
+ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background: #b1b1b1;
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+ul li a:hover {
+  transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+ul li:hover .fa {
+  color: #fff;
+}
+
+ul li:hover span {
+  color: #fff;
+}
+
+ul li:hover:nth-child(1) a {
+  background: #1a2a3a;
+}
+ul li:hover:nth-child(1) a:before {
+  background: #121d29;
+}
+ul li:hover:nth-child(1) a:after {
+  background: #2e4863;
+}
+
+ul li:hover:nth-child(2) a {
+  background: #ffca08;
+}
+ul li:hover:nth-child(2) a:before {
+  background: #cc9e00;
+}
+ul li:hover:nth-child(2) a:after {
+  background: #ffd84d;
+}
+
+ul li:hover:nth-child(3) a {
+  background: #00f0ff;
+}
+ul li:hover:nth-child(3) a:before {
+  background: #00b5c6;
+}
+ul li:hover:nth-child(3) a:after {
+  background: #66fbff;
+}
+
+.heart {
+  position: fixed;
+  font-size: 24px;
+  color: red;
+  animation: float 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0; /* изначально скрыты */
+}
+
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  10% {
+    opacity: 1; /* быстро проявляются */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(50px); /* выпадают вниз */
   }
 }
